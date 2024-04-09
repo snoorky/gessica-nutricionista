@@ -8,24 +8,20 @@ $w.onReady(function () {
     if (wixWindowFrontend.formFactor === "Mobile") {
         $w('#text125').html = '<h1 class="font_0 wixui-rich-text__text" style="font-size: 90px; text-align: center; line-height: 1em; color: transparent; background-image: linear-gradient(to right, #9F2803, #EC391A); -webkit-background-clip: text; background-clip: text"><span style="font-size: auto;" class="wixui-rich-text__text"><span style="font-family: wfont_e43bdd_b91e947f0c3a4a60801f61b2db0a2b96,wf_b91e947f0c3a4a60801f61b2d,orig_sora_extrabold;" class="wixui-rich-text__text"><span style="font-weight: bold;" class="wixui-rich-text__text">FOCO</span></span></span></h1>';
 
-        $w("#image65").show();
-        $w("#image66").hide();
-        $w("#image67").hide();
+        const images = ["#image65", "#image66", "#image67"];
+        let currentIndex = 0;
+
+        $w(images[currentIndex]).show();
+        images.forEach((image, index) => {
+            if (index !== currentIndex) {
+                $w(image).hide();
+            }
+        });
 
         setInterval(() => {
-            if ($w("#image65").visible) {
-                $w("#image65").hide();
-                $w("#image66").show();
-                $w("#image67").hide();
-            } else if ($w("#image66").visible) {
-                $w("#image65").hide();
-                $w("#image66").hide();
-                $w("#image67").show();
-            } else {
-                $w("#image65").show();
-                $w("#image66").hide();
-                $w("#image67").hide();
-            }
+            $w(images[currentIndex]).hide();
+            currentIndex = (currentIndex + 1) % images.length;
+            $w(images[currentIndex]).show();
         }, 2000);
     }
 });

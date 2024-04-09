@@ -11,17 +11,17 @@ $w.onReady(function () {
         const images = ["#image65", "#image66", "#image67"];
         let currentIndex = 0;
 
-        $w(images[currentIndex]).show();
+        $w(images[currentIndex]).expand();
         images.forEach((image, index) => {
             if (index !== currentIndex) {
-                $w(image).hide();
+                $w(image).collapse();
             }
         });
 
         setInterval(() => {
-            $w(images[currentIndex]).hide();
+            $w(images[currentIndex]).collapse();
             currentIndex = (currentIndex + 1) % images.length;
-            $w(images[currentIndex]).show();
+            $w(images[currentIndex]).expand();
         }, 2000);
     }
 });

@@ -1,0 +1,3 @@
+$w.onReady(function () {
+    $w('#text59').html = '<h1 class="font_0 wixui-rich-text__text" style="font-size:64px;line-height:1em; color: transparent; background-image: linear-gradient(to right, #9F2803, #EC391A); -webkit-background-clip: text; background-clip: text"><span style="font-size:64px;" class="wixui-rich-text__text"><span style="font-weight:bold;" class="wixui-rich-text__text">Como posso te ajudar?</span></span></h1>';
+});
